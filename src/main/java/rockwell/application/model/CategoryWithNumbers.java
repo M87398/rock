@@ -6,9 +6,6 @@ public class CategoryWithNumbers {
     private String category;
     private List<Integer> numbers;
 
-    public CategoryWithNumbers() {
-    }
-
     public String getCategory() {
         return category;
     }

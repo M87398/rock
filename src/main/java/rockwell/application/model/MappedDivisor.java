@@ -6,21 +6,21 @@ import java.util.List;
 import java.util.Map;
 
 public class MappedDivisor implements Serializable {
-    private Map<Integer, List<String>> mappedDivisor;
+    private Map<Integer, List<String>> divisorsMap;
 
     public MappedDivisor() {
     }
     public MappedDivisor(Integer key, List<String> mappings) {
-        mappedDivisor = new HashMap<>();
-        mappedDivisor.put(key,mappings);
+        divisorsMap = new HashMap<>();
+        divisorsMap.put(key,mappings);
     }
 
-    public Map<Integer, List<String>> getMappedDivisor() {
-        return mappedDivisor;
+    public Map<Integer, List<String>> getDivisorsMap() {
+        return divisorsMap;
     }
 
-    public void setMappedDivisor(Map<Integer, List<String>> mappedDivisor) {
-        this.mappedDivisor = mappedDivisor;
+    public void setDivisorsMap(Map<Integer, List<String>> divisorsMap) {
+        this.divisorsMap = divisorsMap;
     }
 
     @Override
@@ -30,11 +30,11 @@ public class MappedDivisor implements Serializable {
 
         MappedDivisor that = (MappedDivisor) o;
 
-        return getMappedDivisor().equals(that.getMappedDivisor());
+        return getDivisorsMap().equals(that.getDivisorsMap());
     }
 
     @Override
     public int hashCode() {
-        return getMappedDivisor().hashCode();
+        return getDivisorsMap().hashCode();
     }
 }
