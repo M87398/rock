@@ -1,4 +1,4 @@
-package rockwell.application;
+package rockwell.application.model.categorymapper;
 
 import java.util.Map;
 
