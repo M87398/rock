@@ -11,20 +11,21 @@ import rockwell.application.util.DivisorsUtil;
 import java.util.List;
 
 @Component
-public class MappingService implements IMapping{
+public class MappingService implements IMapping {
     ICategoryMapper categoryMapper;
+
     @Override
     public NumbersWithDivisorsMapped process(CategoryWithNumbers categoryWithNumbers) {
         categoryMapper = CategoryMapperCreator.getMapper(categoryWithNumbers.getCategory());
-        NumbersWithDivisorsMapped numbersWithDivisorsMapped= new NumbersWithDivisorsMapped();
+        NumbersWithDivisorsMapped numbersWithDivisorsMapped = new NumbersWithDivisorsMapped();
 
         categoryWithNumbers.getNumbers().forEach(nr -> {
 
-            List<Integer> allDivisors=DivisorsUtil.getAllDivsors(nr);
-            List<String>  mappedDivisors=allDivisors.stream()
-                    .map( divisor->categoryMapper.getMap().get(divisor))
+            List<Integer> allDivisors = DivisorsUtil.getAllDivsors(nr);
+            List<String> mappedDivisors = allDivisors.stream()
+                    .map(divisor -> categoryMapper.getMappedDivisor(divisor))
                     .toList();
-            MappedDivisor map = new MappedDivisor(nr,mappedDivisors);
+            MappedDivisor map = new MappedDivisor(nr, mappedDivisors);
             numbersWithDivisorsMapped.addMap(map);
         });
 
